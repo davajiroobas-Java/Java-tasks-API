@@ -18,6 +18,10 @@ public class StudentController {
 }
 
 
+@GetMapping("/hello/{name}")
+public String helloName(@PathVariable String name){
+    return "Hello " + name;
+}
 
 
 
