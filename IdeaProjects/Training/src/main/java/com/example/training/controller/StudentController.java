@@ -27,4 +27,10 @@ public String helloName(@PathVariable String name){
 public String hello(@RequestParam String name){
     return "Hello "+ name;
 }
+
+
+@PostMapping("/students")
+    public Student createStudent(@RequestBody Student student){
+    return student;
+}
 }
