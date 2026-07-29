@@ -83,18 +83,15 @@ public class StudentController {
     }
 
 
-    //To remove a student by id, just use @PathVariable
+    //To remove a student by id, just use @PathVariable and removeIf
+    // removeIf() is a modern and safe way to remove items from a list.
     @DeleteMapping("/students/{id}")
     public String deleteStudent(@PathVariable Integer id) {
 
-        for (Student student : students) {
+        boolean removed = students.removeIf(student -> student.getId().equals(id));
 
-            if (student.getId().equals(id)) {
-
-                students.remove(student);
-
-                return "Student borttagen";
-            }
+        if (removed) {
+            return "Student borttagen";
         }
 
         return "Student hittades inte";
