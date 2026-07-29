@@ -17,12 +17,14 @@ public class StudentController {
     return  "Hello from java!";
 }
 
-
 @GetMapping("/hello/{name}")
 public String helloName(@PathVariable String name){
     return "Hello " + name;
 }
 
 
-
+@GetMapping("/name")
+public String hello(@RequestParam String name){
+    return "Hello "+ name;
+}
 }
